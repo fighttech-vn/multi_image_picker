@@ -1,9 +1,8 @@
 import 'dart:async';
+import 'dart:ui' as ui show instantiateImageCodec, Codec;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:ui' as ui show instantiateImageCodec, Codec;
 import 'package:multi_image_picker/multi_image_picker.dart';
 
 class AssetThumbImageProvider extends ImageProvider<AssetThumbImageProvider> {
@@ -67,9 +66,8 @@ class AssetThumbImageProvider extends ImageProvider<AssetThumbImageProvider> {
         quality == typedOther.quality;
   }
 
-  @override
-  int get hashCode =>
-      hashValues(asset.identifier, scale, width, height, quality);
+  // @override
+  int get hashCode => Object.hash(asset.identifier, scale, width, height, quality);
 
   @override
   String toString() => '$runtimeType(${asset.identifier}, scale: $scale, '
