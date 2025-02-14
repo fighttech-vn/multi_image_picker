@@ -44,7 +44,6 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import static android.media.ThumbnailUtils.OPTIONS_RECYCLE_INPUT;
 
@@ -74,17 +73,7 @@ public class MultiImagePickerPlugin implements
     private BinaryMessenger messenger;
     private Result pendingResult;
     private MethodCall methodCall;
-
-
-    /**
-     * Plugin registration.
-     */
-    public static void registerWith(Registrar registrar) {
-        MultiImagePickerPlugin instance = new MultiImagePickerPlugin();
-        instance.onAttachedToEngine(registrar.context(), registrar.messenger(), registrar.activity());
-        registrar.addActivityResultListener(instance);
-    }
-
+   
     private void onAttachedToEngine(Context applicationContext, BinaryMessenger binaryMessenger, Activity activity) {
         context = applicationContext;
         messenger = binaryMessenger;
