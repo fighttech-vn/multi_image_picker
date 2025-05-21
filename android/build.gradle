@@ -24,6 +24,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 34
+    namespace = "com.vitanov.multiimagepicker"
 
     defaultConfig {
         minSdkVersion 16
